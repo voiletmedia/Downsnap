@@ -242,7 +242,7 @@ URL_PATTERN = re.compile(
 )
 
 # YouTube player client preference order — updated for mid-2026.
-_YT_PLAYER_CLIENTS ="player_client": ["android", "ios", "tv_embedded", "web_creator"],
+_YT_PLAYER_CLIENTS = ["tv_embedded", "ios", "web_creator", "android"]
 
 YDL_OPTS_BASE: dict = {
     "quiet": True,
@@ -255,7 +255,7 @@ YDL_OPTS_BASE: dict = {
         "facebook": {},
         "youtube": {
             "skip": ["webpage"],
-            "player_client": ["android,ios,tv_embedded,web_creator"],
+            "player_client": ["android", "ios", "tv_embedded", "web_creator"],
         },
     },
 }

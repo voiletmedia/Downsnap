@@ -242,7 +242,7 @@ URL_PATTERN = re.compile(
 )
 
 # YouTube player client preference order — updated for mid-2026.
-_YT_PLAYER_CLIENTS = ["tv_embedded", "ios", "web_creator", "android"]
+_YT_PLAYER_CLIENTS ="player_client": ["android", "ios", "tv_embedded", "web_creator"],
 
 YDL_OPTS_BASE: dict = {
     "quiet": True,

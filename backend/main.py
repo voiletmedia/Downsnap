@@ -781,7 +781,11 @@ async def download_proxy(
         client = httpx.AsyncClient(follow_redirects=True, timeout=None)
         req = client.build_request("GET", media_url, headers=headers)
         response = await client.send(req, stream=True)
-
+        if response.status_code == 403 and "googlevideo.com" in media_url:
+            await response.aclose()
+            await asyncio.sleep(6)
+            req = client.build_request("GET", media_url, headers=headers)
+            response = await client.send(req, stream=True)
         if response.status_code >= 400:
             await response.aclose()
             await client.aclose()
